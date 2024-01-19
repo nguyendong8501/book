@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Male_Fashion Template">
+<meta name="keywords" content="Male_Fashion, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Book-lib</title>
+<link rel="icon" href="/img/logo-3.png">
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+	rel="stylesheet">
+
+<!-- Css Styles -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Offcanvas Menu Begin -->
+	<div class="offcanvas-menu-overlay"></div>
+	<div class="offcanvas-menu-wrapper">
+		<div class="offcanvas__option">
+			<div class="offcanvas__links">
+				<a th:if="${session.acc == null}" th:href="@{/signin}">Đăng nhập</a> <a
+					th:if="${session.acc != null}" th:text="${session.acc.user_Name}"
+					style="color: white;"></a> <a th:if="${session.acc != null}"
+					th:href="@{/signout}">Đăng xuất</a><a href="#">FAQs</a>
+			</div>
+			<div class="offcanvas__top__hover">
+				<span>VND <i class="arrow_carrot-down"></i></span>
+				<ul>
+					<li>USD</li>
+					<li>EUR</li>
+					<li>USD</li>
+				</ul>
+			</div>
+		</div>
+		<div class="offcanvas__nav__option">
+			<a href="#" class="search-switch"><img src="img/icon/search.png"
+				alt=""></a> <a href="#"><img src="img/icon/heart.png" alt=""></a>
+			<a th:href="@{/cart}"><img src="img/icon/cart.png" alt=""> <span
+							th:text="${session.countCart}"></span></a>
+		</div>
+		<div id="mobile-menu-wrap"></div>
+		<div class="offcanvas__text">
+			<p>Miễn phí vận chuyển, đảm bảo hoàn trả hoặc hoàn tiền trong 30 ngày.</p>
+		</div>
+	</div>
+	<!-- Offcanvas Menu End -->
+
+	<!-- Header Section Begin -->
+	<header class="header">
+		<div class="header__top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-7">
+						<div class="header__top__left">
+							<p>Miễn phí vận chuyển, đảm bảo hoàn trả hoặc hoàn tiền trong 30 ngày.</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-5">
+						<div class="header__top__right">
+							<div class="header__top__links">
+								<a th:if="${session.acc == null}" th:href="@{/signin}">Đăng nhập</a> <a th:if="${session.acc != null}"
+									th:text="${session.acc.user_Name}" style="color: white;"></a> <a
+									th:if="${session.acc != null}" th:href="@{/signout}">Đăng xuất</a><a href="#">FAQs</a>
+							</div>
+							<div class="header__top__hover">
+								<span>VND <i class="arrow_carrot-down"></i></span>
+								<ul>
+									<li>USD</li>
+									<li>EUR</li>
+									<li>USD</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3">
+					<div class="header__logo">
+						<a th:href="@{/home}" id="logo-container">NTD Book</a>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<nav class="header__menu mobile-menu">
+						<ul>
+							<li><a th:href="@{/home}">Trang chủ</a></li>
+							<li class="active"><a th:href="@{/shop}">Cửa hàng</a></li>
+							<li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                	<li><a th:href="@{/cart}">Giỏ hàng</a></li>
+									<li><a th:href="@{/myprofile}">Tài khoản</a></li>
+									<li><a th:href="@{/myhistory}">Lịch sử</a></li>
+									<li><a th:href="@{/about}">Về chúng tôi</a></li>
+                                </ul></li>
+							<li><a th:href="@{/blog}">Blog</a></li>
+							<li><a th:href="@{/contact}">Liên hệ</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-3 col-md-3">
+					<div class="header__nav__option">
+						<a href="#" class="search-switch"><img
+							src="img/icon/search.png" alt=""></a> <a href="#"><img
+							src="img/icon/heart.png" alt=""></a> <a th:href="@{/cart}"><img
+							src="img/icon/cart.png" alt=""> <span
+							th:text="${session.countCart}"></span></a>
+					</div>
+				</div>
+			</div>
+			<div class="canvas__open">
+				<i class="fa fa-bars"></i>
+			</div>
+		</div>
+	</header>
+	<!-- Header Section End -->
+
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-blog set-bg"
+		data-setbg="https://media.npr.org/assets/img/2022/12/22/gettyimages-1245203807-1536x1029_wide-9982607ca51f99999656d993bf5511d42533c0f2-s1400-c100.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2>Blog của chúng tôi</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
+
+	<!-- Blog Section Begin -->
+	<section class="blog spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="blog__item">
+						<div class="blog__item__pic set-bg"
+							data-setbg="img/blog/blog-1.jpg"></div>
+						<div class="blog__item__text">
+							<span><img src="img/icon/calendar.png" alt=""> 12/12/2023
+								</span>
+							<h5>Xu hướng đọc sách của trẻ em trên thế giới</h5>
+							<a href="https://baohaiduong.vn/xu-huong-doc-sach-cua-tre-em-tren-the-gioi-156827.html">Đọc thêm</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="blog__item">
+						<div class="blog__item__pic set-bg"
+							data-setbg="img/blog/blog-2.jpg"></div>
+						<div class="blog__item__text">
+							<span><img src="img/icon/calendar.png" alt=""> 21/12/2023</span>
+							<h5>Xây dựng thói quen đọc sách cho thiếu nhi, học sinh</h5>
+							<a href="https://svhttdl.tiengiang.gov.vn/van-hoa/-
+							/asset_publisher/wxIoUS9QiA4e/content/xay-dung-thoi-quen-oc-sach-cho-thieu-nhi-hoc-sinh">Đọc thêm</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="blog__item">
+						<div class="blog__item__pic set-bg"
+							data-setbg="img/blog/blog-3.jpg"></div>
+						<div class="blog__item__text">
+							<span><img src="img/icon/calendar.png" alt=""> 28/12/2023</span>
+							<h5>Đắc nhân tâm: Một nửa sự thật là toàn bộ dối trá</h5>
+							<a href="https://spiderum.com/bai-dang/Dac-nhan-tam-Mot-nua-su-that-la-toan-bo-doi-tra-et0">Đọc thêm</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="blog__item">
+						<div class="blog__item__pic set-bg"
+							data-setbg="img/blog/blog-4.png"></div>
+						<div class="blog__item__text">
+							<span><img src="img/icon/calendar.png" alt=""> 16/1/2024
+								</span>
+							<h5>Review sách Tôi Nói Về Giàu Có - Sách dạy làm giàu có bão hòa hay chưa?</h5>
+							<a href="https://spiderum.com/bai-dang/Review-sach-Toi-Noi-Ve-Giau-Co-Sach-day-lam-giau-co-bao-hoa-hay-chua-nTCv4INiPUfx">Đọc thêm</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="blog__item">
+						<div class="blog__item__pic set-bg"
+							data-setbg="img/blog/blog-5.png"></div>
+						<div class="blog__item__text">
+							<span><img src="img/icon/calendar.png" alt=""> 15/1/2024 </span>
+							<h5>Triệu phú khu ổ chuột - Mảnh vỡ của sự may mắn</h5>
+							<a href="https://spiderum.com/bai-dang/Trieu-phu-khu-o-chuot-Manh-vo-cua-su-may-man-3ZBnNqftqyjZ">Đọc thêm</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="blog__item">
+						<div class="blog__item__pic set-bg"
+							data-setbg="img/blog/blog-6.jpeg"></div>
+						<div class="blog__item__text">
+							<span><img src="img/icon/calendar.png" alt=""> 24/12/2023</span>
+							<h5>[REVIEW BOOKS] Hachiko - Chú chó đợi chờ</h5>
+							<a href="https://spiderum.com/bai-dang/REVIEW-BOOKS-Hachiko-Chu-cho-doi-cho-FCeZSoB77sOe">Đọc thêm</a>
+						</div>
+					</div>
+				</div>
+				
+		
+			</div>
+		</div>
+	</section>
+	<!-- Blog Section End -->
+
+	<!-- Footer Section Begin -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="footer__about">
+						<div class="footer__logo">
+							
+						</div>
+						<p>Độc giả luôn là đối tượng chúng tôi quan tâm và hướng đến.</p>
+						<a href="#"><img src="img/payment.png" alt=""></a>
+					</div>
+				</div>
+				<div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+					<div class="footer__widget">
+						<h6>Thể loại</h6>
+						<ul>
+							<li><a href="#">Truyện tranh</a></li>
+							<li><a href="#">Sách tâm lý</a></li>
+							<li><a href="#">Truyện ngắn</a></li>
+							<li><a href="#">Hồi kí</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-6">
+					<div class="footer__widget">
+						<h6>Shopping</h6>
+						<ul>
+							<li><a href="#">Liên hệ</a></li>
+							<li><a href="#">Hình thức thanh toán</a></li>
+							<li><a href="#">Vận chuyển</a></li>
+							<li><a href="#">Đổi trả</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+					<div class="footer__widget">
+						<h6>Tin tức</h6>
+						<div class="footer__newslatter">
+							<p>Trở thành người đầu tiên nhận được những thông tin mới!!</p>
+							<form action="#">
+								<input type="text" placeholder="Your email">
+								<button type="submit">
+									<span class="icon_mail_alt"></span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="footer__copyright__text">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						<p>
+							Copyright ©
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							2020 All rights reserved | This template is made with <i
+								class="fa fa-heart-o" aria-hidden="true"></i> by <a
+								href="https://colorlib.com" target="_blank">Colorlib</a>
+						</p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Section End -->
+
+	<!-- Search Begin -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form th:action="@{/search}" method="POST" class="search-model-form">
+				<input name="search-input" type="text" id="search-input"
+					placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search End -->
+
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.nicescroll.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/mixitup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
